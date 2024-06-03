@@ -2,13 +2,18 @@ class Band(models.Model):
     """
     Represents a musical band.
 
-    Attributes:
-        name (str): The name of the band.
-        genre (str): The genre of music the band plays.
-        origin (str): The place where the band originates.
-        formation_date (date): The date when the band was formed.
-        biography (str): A brief biography or description of the band.
-        social_media_links (str): URLs to the band's social media profiles.
+    :ivar name: The name of the band.
+    :vartype name: str
+    :ivar genre: The genre of music the band plays.
+    :vartype genre: str
+    :ivar origin: The place where the band originates.
+    :vartype origin: str
+    :ivar formation_date: The date when the band was formed.
+    :vartype formation_date: date
+    :ivar biography: A brief biography or description of the band.
+    :vartype biography: str
+    :ivar social_media_links: URLs to the band's social media profiles.
+    :vartype social_media_links: str
     """
 
     name = models.CharField(max_length=100)
@@ -21,19 +26,27 @@ class Band(models.Model):
     def __str__(self):
         """
         Returns the string representation of the band.
+
+        :return: The name of the band.
+        :rtype: str
         """
         return self.name
+
 
 class Track(models.Model):
     """
     Represents a musical track.
 
-    Attributes:
-        band (Band): The band associated with the track.
-        title (str): The title of the track.
-        duration (timedelta): The duration of the track.
-        release_date (date): The date when the track was released.
-        audio_file (str): The file path to the audio file of the track.
+    :ivar band: The band associated with the track.
+    :vartype band: Band
+    :ivar title: The title of the track.
+    :vartype title: str
+    :ivar duration: The duration of the track.
+    :vartype duration: timedelta
+    :ivar release_date: The date when the track was released.
+    :vartype release_date: date
+    :ivar audio_file: The file path to the audio file of the track.
+    :vartype audio_file: str
     """
 
     band = models.ForeignKey(Band, on_delete=models.CASCADE)
@@ -45,16 +58,21 @@ class Track(models.Model):
     def __str__(self):
         """
         Returns the string representation of the track.
+
+        :return: The title of the track.
+        :rtype: str
         """
         return self.title
+
 
 class UserProfile(models.Model):
     """
     Represents a user profile.
 
-    Attributes:
-        user (User): The user associated with the profile.
-        favorite_tracks (QuerySet): The favorite tracks of the user.
+    :ivar user: The user associated with the profile.
+    :vartype user: User
+    :ivar favorite_tracks: The favorite tracks of the user.
+    :vartype favorite_tracks: QuerySet
     """
 
     user = models.OneToOneField(User, on_delete=models.CASCADE)
@@ -63,18 +81,25 @@ class UserProfile(models.Model):
     def __str__(self):
         """
         Returns the string representation of the user profile.
+
+        :return: The username of the user.
+        :rtype: str
         """
         return self.user.username
+
 
 class Review(models.Model):
     """
     Represents a review of a track by a user.
 
-    Attributes:
-        user (User): The user who wrote the review.
-        track (Track): The track being reviewed.
-        rating (int): The rating given to the track (1 to 5).
-        comment (str): The comment or review text.
+    :ivar user: The user who wrote the review.
+    :vartype user: User
+    :ivar track: The track being reviewed.
+    :vartype track: Track
+    :ivar rating: The rating given to the track (1 to 5).
+    :vartype rating: int
+    :ivar comment: The comment or review text.
+    :vartype comment: str
     """
 
     user = models.ForeignKey(User, on_delete=models.CASCADE)
@@ -85,5 +110,8 @@ class Review(models.Model):
     def __str__(self):
         """
         Returns the string representation of the review.
+
+        :return: Username and title of the reviewed track.
+        :rtype: str
         """
         return f"{self.user.username} - {self.track.title}"

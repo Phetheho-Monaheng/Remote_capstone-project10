@@ -1,76 +1,71 @@
 from django.shortcuts import render, redirect
 from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth.decorators import login_required
+from django.http import HttpRequest, HttpResponse
 
-def home(request):
+def home(request: HttpRequest) -> HttpResponse:
     """
     Renders the home page.
 
-    Parameters:
-        request (HttpRequest): The request object.
-
-    Returns:
-        HttpResponse: The rendered home page.
+    :param request: The request object.
+    :type request: HttpRequest
+    :return: The rendered home page.
+    :rtype: HttpResponse
     """
     return render(request, 'home.html')
 
-def about(request):
+def about(request: HttpRequest) -> HttpResponse:
     """
     Renders the about page.
 
-    Parameters:
-        request (HttpRequest): The request object.
-
-    Returns:
-        HttpResponse: The rendered about page.
+    :param request: The request object.
+    :type request: HttpRequest
+    :return: The rendered about page.
+    :rtype: HttpResponse
     """
     return render(request, 'about.html')
 
-def discography(request):
+def discography(request: HttpRequest) -> HttpResponse:
     """
     Renders the discography page.
 
-    Parameters:
-        request (HttpRequest): The request object.
-
-    Returns:
-        HttpResponse: The rendered discography page.
+    :param request: The request object.
+    :type request: HttpRequest
+    :return: The rendered discography page.
+    :rtype: HttpResponse
     """
     return render(request, 'discography.html')
 
-def tour(request):
+def tour(request: HttpRequest) -> HttpResponse:
     """
     Renders the tour page.
 
-    Parameters:
-        request (HttpRequest): The request object.
-
-    Returns:
-        HttpResponse: The rendered tour page.
+    :param request: The request object.
+    :type request: HttpRequest
+    :return: The rendered tour page.
+    :rtype: HttpResponse
     """
     return render(request, 'tour.html')
 
-def contact(request):
+def contact(request: HttpRequest) -> HttpResponse:
     """
     Renders the contact page.
 
-    Parameters:
-        request (HttpRequest): The request object.
-
-    Returns:
-        HttpResponse: The rendered contact page.
+    :param request: The request object.
+    :type request: HttpRequest
+    :return: The rendered contact page.
+    :rtype: HttpResponse
     """
     return render(request, 'contact.html')
 
-def signup(request):
+def signup(request: HttpRequest) -> HttpResponse:
     """
     Handles user signup.
 
-    Parameters:
-        request (HttpRequest): The request object.
-
-    Returns:
-        HttpResponse: The rendered signup page or redirects to the login page.
+    :param request: The request object.
+    :type request: HttpRequest
+    :return: The rendered signup page or redirects to the login page.
+    :rtype: HttpResponse
     """
     if request.method == 'POST':
         form = UserCreationForm(request.POST)
@@ -82,14 +77,13 @@ def signup(request):
     return render(request, 'signup.html', {'form': form})
 
 @login_required
-def user_profile(request):
+def user_profile(request: HttpRequest) -> HttpResponse:
     """
     Renders the user profile page.
 
-    Parameters:
-        request (HttpRequest): The request object.
-
-    Returns:
-        HttpResponse: The rendered user profile page.
+    :param request: The request object.
+    :type request: HttpRequest
+    :return: The rendered user profile page.
+    :rtype: HttpResponse
     """
     return render(request, 'user_profile.html')

@@ -37,3 +37,4 @@ Before you begin, make sure you have the following installed:
    docker run -p <host_port>:<container_port> <image_name>
    
 Once the application is running, you can access it in your web browse.
+

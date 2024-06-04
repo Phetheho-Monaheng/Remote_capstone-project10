@@ -3,6 +3,7 @@ from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth.decorators import login_required
 from django.http import HttpRequest, HttpResponse
 
+
 def home(request: HttpRequest) -> HttpResponse:
     """
     Renders the home page.
@@ -12,7 +13,8 @@ def home(request: HttpRequest) -> HttpResponse:
     :return: The rendered home page.
     :rtype: HttpResponse
     """
-    return render(request, 'home.html')
+    return render(request, 'neon_band/home.html')
+
 
 def about(request: HttpRequest) -> HttpResponse:
     """
@@ -23,7 +25,8 @@ def about(request: HttpRequest) -> HttpResponse:
     :return: The rendered about page.
     :rtype: HttpResponse
     """
-    return render(request, 'about.html')
+    return render(request, 'neon_band/about.html')
+
 
 def discography(request: HttpRequest) -> HttpResponse:
     """
@@ -34,7 +37,8 @@ def discography(request: HttpRequest) -> HttpResponse:
     :return: The rendered discography page.
     :rtype: HttpResponse
     """
-    return render(request, 'discography.html')
+    return render(request, 'neon_band/discography.html')
+
 
 def tour(request: HttpRequest) -> HttpResponse:
     """
@@ -45,7 +49,8 @@ def tour(request: HttpRequest) -> HttpResponse:
     :return: The rendered tour page.
     :rtype: HttpResponse
     """
-    return render(request, 'tour.html')
+    return render(request, 'neon_band/tour.html')
+
 
 def contact(request: HttpRequest) -> HttpResponse:
     """
@@ -56,7 +61,8 @@ def contact(request: HttpRequest) -> HttpResponse:
     :return: The rendered contact page.
     :rtype: HttpResponse
     """
-    return render(request, 'contact.html')
+    return render(request, 'neon_band/contact.html')
+
 
 def signup(request: HttpRequest) -> HttpResponse:
     """
@@ -74,7 +80,8 @@ def signup(request: HttpRequest) -> HttpResponse:
             return redirect('login')  # Redirect to login page after successful signup
     else:
         form = UserCreationForm()
-    return render(request, 'signup.html', {'form': form})
+    return render(request, 'neon_band/signup.html', {'form': form})
+
 
 @login_required
 def user_profile(request: HttpRequest) -> HttpResponse:
@@ -86,5 +93,5 @@ def user_profile(request: HttpRequest) -> HttpResponse:
     :return: The rendered user profile page.
     :rtype: HttpResponse
     """
-    return render(request, 'user_profile.html')
+    return render(request, 'neon_band/user_profile.html')
 

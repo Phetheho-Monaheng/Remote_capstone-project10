@@ -87,3 +87,4 @@ def user_profile(request: HttpRequest) -> HttpResponse:
     :rtype: HttpResponse
     """
     return render(request, 'user_profile.html')
+

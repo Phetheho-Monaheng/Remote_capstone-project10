@@ -1,3 +1,4 @@
+from django.db import models
 class Band(models.Model):
     """
     Represents a musical band.

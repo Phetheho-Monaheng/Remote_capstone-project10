@@ -7,13 +7,23 @@
 </head>
 <body>
     <h1>Neon band Discography</h1>
-    <p>List of albums and singles...</p>
+    <div>
+        {% for track in tracks %}
+            <div>
+                <h2>{{ track.title }}</h2>
+                <p>Duration: {{ track.duration }}</p>
+                <p>Release Date: {{ track.release_date }}</p>
+            </div>
+        {% empty %}
+            <p>No tracks available</p>
+        {% endfor %}
+    </div>
     <nav>
         <ul>
-            <li><a href="/home/">Home</a></li>
-            <li><a href="/about/">About</a></li>
-            <li><a href="/tour/">Tour Dates</a></li>
-            <li><a href="/contact/">Contact</a></li>
+            <li><a href="{% url 'home' %}">Home</a></li>
+            <li><a href="{% url 'about' %}">About</a></li>
+            <li><a href="{% url 'tour' %}">Tour Dates</a></li>
+            <li><a href="{% url 'contact' %}">Contact</a></li>
         </ul>
     </nav>
 </body>

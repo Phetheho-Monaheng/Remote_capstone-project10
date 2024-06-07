@@ -10,13 +10,12 @@
 <body>
     <h1>Welcome to Neon band</h1>
     <p>Introduction to the band...</p>
-    <img src="{% static 'band_image.jpg' %}" alt="Neon Echo Band">
     <nav>
         <ul>
-            <li><a href="/about/">About</a></li>
-            <li><a href="/discography/">Discography</a></li>
-            <li><a href="/tour/">Tour Dates</a></li>
-            <li><a href="/contact/">Contact</a></li>
+            <li><a href="{% url 'about' %}">About</a></li>
+            <li><a href="{% url 'discography' %}">Discography</a></li>
+            <li><a href="{% url 'tour' %}">Tour Dates</a></li>
+            <li><a href="{% url 'contact' %}">Contact</a></li>
         </ul>
     </nav>
 </body>

@@ -1,7 +1,7 @@
 admin module
 ============
 
-.. automodule:: admin
+.. automodule:: neon_band.admin
    :members:
    :undoc-members:
    :show-inheritance:

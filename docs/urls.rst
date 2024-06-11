@@ -1,7 +1,7 @@
 urls module
 ===========
 
-.. automodule:: urls
+.. automodule:: neon_band.urls
    :members:
    :undoc-members:
    :show-inheritance:

@@ -1,7 +1,7 @@
 tests module
 ============
 
-.. automodule:: tests
+.. automodule:: neon_band.tests
    :members:
    :undoc-members:
    :show-inheritance:

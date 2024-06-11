@@ -1,7 +1,7 @@
 models module
 =============
 
-.. automodule:: models
+.. automodule:: neon_band.models
    :members:
    :undoc-members:
    :show-inheritance:

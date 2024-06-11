@@ -1,7 +1,7 @@
 apps module
 ===========
 
-.. automodule:: apps
+.. automodule:: neon_band.apps
    :members:
    :undoc-members:
    :show-inheritance:

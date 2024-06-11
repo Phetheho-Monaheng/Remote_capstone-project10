@@ -1,7 +1,7 @@
 views module
 ============
 
-.. automodule:: views
+.. automodule:: neon_band.views
    :members:
    :undoc-members:
    :show-inheritance:

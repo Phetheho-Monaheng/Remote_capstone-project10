@@ -1,7 +1,7 @@
 forms module
 ============
 
-.. automodule:: forms
+.. automodule:: neon_band.forms
    :members:
    :undoc-members:
    :show-inheritance:

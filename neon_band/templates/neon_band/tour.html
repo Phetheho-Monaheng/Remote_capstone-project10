@@ -16,5 +16,9 @@
             <li><a href="{% url 'contact' %}">Contact</a></li>
         </ul>
     </nav>
+    <form action="{% url 'accounts:logout' %}" method="post">
+        {% csrf_token %}
+        <button type="submit">Logout</button>
+    </form>
 </body>
 </html>

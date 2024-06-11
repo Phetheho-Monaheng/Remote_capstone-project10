@@ -26,5 +26,9 @@
             <li><a href="{% url 'tour' %}">Tour Dates</a></li>
         </ul>
     </nav>
+    <form action="{% url 'accounts:logout' %}" method="post">
+        {% csrf_token %}
+        <button type="submit">Logout</button>
+    </form>
 </body>
 </html>

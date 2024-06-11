@@ -1,97 +1,92 @@
 from django.shortcuts import render, redirect
 from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth.decorators import login_required
-from django.http import HttpRequest, HttpResponse
 
 
-def home(request: HttpRequest) -> HttpResponse:
+@login_required
+def home(request):
     """
-    Renders the home page.
+    Render the home page of the Neon Band website.
 
-    :param request: The request object.
-    :type request: HttpRequest
-    :return: The rendered home page.
-    :rtype: HttpResponse
+    :param request: HttpRequest object
+    :return: HttpResponse object representing the rendered home page
     """
     return render(request, 'neon_band/home.html')
 
 
-def about(request: HttpRequest) -> HttpResponse:
+@login_required
+def about(request):
     """
-    Renders the about page.
+    Render the about page providing information about the Neon Band.
 
-    :param request: The request object.
-    :type request: HttpRequest
-    :return: The rendered about page.
-    :rtype: HttpResponse
+    :param request: HttpRequest object
+    :return: HttpResponse object representing the rendered about page
     """
     return render(request, 'neon_band/about.html')
 
 
-def discography(request: HttpRequest) -> HttpResponse:
+@login_required
+def discography(request):
     """
-    Renders the discography page.
+    Render the discography page displaying the music releases of the Neon Band.
 
-    :param request: The request object.
-    :type request: HttpRequest
-    :return: The rendered discography page.
-    :rtype: HttpResponse
+    :param request: HttpRequest object
+    :return: HttpResponse object representing the rendered discography page
     """
     return render(request, 'neon_band/discography.html')
 
 
-def tour(request: HttpRequest) -> HttpResponse:
+@login_required
+def tour(request):
     """
-    Renders the tour page.
+    Render the tour page showcasing the upcoming tour dates and locations of the Neon Band.
 
-    :param request: The request object.
-    :type request: HttpRequest
-    :return: The rendered tour page.
-    :rtype: HttpResponse
+    :param request: HttpRequest object
+    :return: HttpResponse object representing the rendered tour page
     """
     return render(request, 'neon_band/tour.html')
 
 
-def contact(request: HttpRequest) -> HttpResponse:
+@login_required
+def contact(request):
     """
-    Renders the contact page.
+    Render the contact page allowing users to get in touch with the Neon Band.
 
-    :param request: The request object.
-    :type request: HttpRequest
-    :return: The rendered contact page.
-    :rtype: HttpResponse
+    :param request: HttpRequest object
+    :return: HttpResponse object representing the rendered contact page
     """
     return render(request, 'neon_band/contact.html')
 
 
-def signup(request: HttpRequest) -> HttpResponse:
+def signup(request):
     """
-    Handles user signup.
+    Handle user signup process.
 
-    :param request: The request object.
-    :type request: HttpRequest
-    :return: The rendered signup page or redirects to the login page.
-    :rtype: HttpResponse
+    If the request method is POST, validates the signup form data. If the form data is valid,
+    creates a new user account and redirects the user to the login page. If the form data is
+    invalid, re-renders the signup form with error messages.
+
+    If the request method is GET, renders the signup form.
+
+    :param request: HttpRequest object
+    :return: HttpResponse object representing the rendered signup page or redirection to login page
     """
     if request.method == 'POST':
         form = UserCreationForm(request.POST)
         if form.is_valid():
             form.save()
-            return redirect('login')  # Redirect to login page after successful signup
+            return redirect('login')
     else:
         form = UserCreationForm()
     return render(request, 'neon_band/signup.html', {'form': form})
 
 
 @login_required
-def user_profile(request: HttpRequest) -> HttpResponse:
+def user_profile(request):
     """
-    Renders the user profile page.
+    Render the user profile page for authenticated users.
 
-    :param request: The request object.
-    :type request: HttpRequest
-    :return: The rendered user profile page.
-    :rtype: HttpResponse
+    :param request: HttpRequest object
+    :return: HttpResponse object representing the rendered user profile page
     """
     return render(request, 'neon_band/user_profile.html')
-

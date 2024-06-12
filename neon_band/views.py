@@ -3,7 +3,6 @@ from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth.decorators import login_required
 
 
-@login_required
 def home(request):
     """
     Render the home page of the Neon Band website.
@@ -14,7 +13,7 @@ def home(request):
     return render(request, 'neon_band/home.html')
 
 
-@login_required
+@login_required(login_url="accounts:login")
 def about(request):
     """
     Render the about page providing information about the Neon Band.
@@ -25,7 +24,7 @@ def about(request):
     return render(request, 'neon_band/about.html')
 
 
-@login_required
+@login_required(login_url="accounts:login")
 def discography(request):
     """
     Render the discography page displaying the music releases of the Neon Band.
@@ -36,7 +35,7 @@ def discography(request):
     return render(request, 'neon_band/discography.html')
 
 
-@login_required
+@login_required(login_url="accounts:login")
 def tour(request):
     """
     Render the tour page showcasing the upcoming tour dates and locations of the Neon Band.
@@ -47,7 +46,7 @@ def tour(request):
     return render(request, 'neon_band/tour.html')
 
 
-@login_required
+@login_required(login_url="accounts:login")
 def contact(request):
     """
     Render the contact page allowing users to get in touch with the Neon Band.
@@ -81,7 +80,7 @@ def signup(request):
     return render(request, 'neon_band/signup.html', {'form': form})
 
 
-@login_required
+@login_required(login_url="accounts:login")
 def user_profile(request):
     """
     Render the user profile page for authenticated users.
